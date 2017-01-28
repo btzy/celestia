@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>celestia.io</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript" src="FontLoader.js"></script>
+    <script type="text/javascript" src="key-polyfill.js"></script>
+    <script type="text/javascript" src="encoding-polyfill.js"></script>
+    <script type="text/javascript" src="findindex-polyfill.js"></script>
+    <script type="text/javascript" src="find-polyfill.js"></script>
+    <script type="text/javascript" src="objects.js"></script>
+    <script type="text/javascript" src="interpolator.js"></script>
+    <script type="text/javascript" src="changelimited.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="dom.js"></script>
+</head>
+<body>
+    <div class="full-screen-panel" id="welcome-panel">
+        <div id="welcome-flex">
+            <!--<div class="flex-item-expand"></div>-->
+            <div id="flex-item-title">
+                <div id="canvas-clipper">
+                    <canvas id="title-canvas"></canvas>
+                </div>
+            </div>
+            <div id="flex-item-name">
+                <input type="text" id="name-textbox" placeholder="Enter your name" />
+            </div>
+            <div id="flex-item-inputmode">
+                <div><span id="interactionmode"><span>Interaction mode:</span> <span class="interactionoption visible" id="mousedefault">Mouse + Keyboard</span><span class="interactionoption touch" id="touchdefault">Touch (buttons on left)</span><span class="interactionoption touch opposite">Touch (buttons on right)</span> <span style="color:gray;">(click to change)</span></span></div>
+            </div>
+            <div style="width:340px;height:290px;flex:0 1 auto;"></div>
+            <!--<div class="flex-item-expand"></div>-->
+        </div>
+    </div>
+    <div class="full-screen-panel" id="game-panel">
+        <canvas id="main-canvas"></canvas>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dom Client</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="blog.css">
+</head>
+<body>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="blog">
+        <div class="title">title</div>
+        <div class="body">
+            <div class="post">
+                <div class="date">1 January 2017</div>
+                <div class="content">
+                    Blah
+                </div>
+                <div class="comment">
+                    <div class="fb-comments" data-href="http://example.com" data-width="100%" data-numposts="5" data-colorscheme="dark"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
