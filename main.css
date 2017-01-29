@@ -90,16 +90,17 @@ body{
     z-index:0;
 }
 #flex-item-note{
-    font-size:12px;
+    font-size:14px;
     font-family:"CandelaBold",sans-serif;
     color:rgb(128,128,128);
+    margin-top:20px;
 }
 #flex-item-inputmode{
     flex:0 0 auto;
     width:100%;
     height:20px;
     line-height:20px;
-    margin-top:20px;
+    margin-top:8px;
     box-sizing:border-box;
     text-align:center;
     font-family:"CandelaBold",sans-serif;
@@ -130,6 +131,9 @@ body{
 }
 #flex-item-links a:hover{
     text-decoration:underline;
+}
+#flex-item-sharer{
+    margin:12px 0;
 }
 #flex-item-legal{
     font-size:12px;
