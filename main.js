@@ -186,6 +186,12 @@ window.addEventListener("load",function(){
             
             var time_offset=Date.now()-time_start;
             var text_width=title_ctx.measureText(text_name).width;
+            
+            var offset_hide=(Math.max(drawing_width,drawing_height)+(additional_padding*drawing_width/title_logical_width));/*1000;*/
+            var shadowOffsetX=offset_hide*title_logical_width/drawing_width*canvas_device_pixel_scale;
+            var shadowOffsetY=offset_hide*title_logical_width/drawing_width*canvas_device_pixel_scale;
+            
+            
             for(var i=0;i<text_parts.length;++i){
                 title_ctx.font=(i<text_name.length)?"168px CandelaBold,sans-serif":"40px CandelaBold,sans-serif";
                 var char_offset_left=(i<text_name.length)?(text_width-title_ctx.measureText(text_name.substr(i)).width+(drawing_width-text_width)/2):((drawing_width+text_width)/2);
@@ -241,8 +247,8 @@ window.addEventListener("load",function(){
                 title_ctx.save();
                 // in drawing units
                 var offset_hide=(Math.max(drawing_width,drawing_height)+(additional_padding*drawing_width/title_logical_width));/*1000;*/
-                title_ctx.shadowOffsetX=offset_hide*title_logical_width/drawing_width*canvas_device_pixel_scale;
-                title_ctx.shadowOffsetY=offset_hide*title_logical_width/drawing_width*canvas_device_pixel_scale;
+                title_ctx.shadowOffsetX=shadowOffsetX;
+                title_ctx.shadowOffsetY=shadowOffsetY;
                 if(local_time_offset<=0){
                     // don't do anything as this character shouldn't come out yet.
                 }
@@ -280,8 +286,8 @@ window.addEventListener("load",function(){
                     // fade in
                     title_ctx.globalAlpha=local_time_offset/1000;
                     var this_color=to_canvas_color(colors[i]);
-                    title_ctx.shadowOffsetX=offset_hide*title_logical_width/drawing_width*canvas_device_pixel_scale;
-                    title_ctx.shadowOffsetY=offset_hide*title_logical_width/drawing_width*canvas_device_pixel_scale;
+                    title_ctx.shadowOffsetX=shadowOffsetX;
+                    title_ctx.shadowOffsetY=shadowOffsetY;
                     title_ctx.shadowBlur=(1000-local_time_offset)/8;
                     title_ctx.shadowColor=this_color;
                     if(i!==6)title_ctx.fillText(text_parts[i],char_offset_left-offset_hide,baseline_height-offset_hide);
@@ -328,30 +334,78 @@ window.addEventListener("load",function(){
                 
                 var fraction_linear=(time_offset-700)/(2200-700);
                 
-                var st_gradient=title_ctx.createRadialGradient(curr_x,curr_y,0,curr_x,curr_y,fraction_linear*50);
-                st_gradient.addColorStop(0,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)]));
-                st_gradient.addColorStop(0.1,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)]));
-                st_gradient.addColorStop(0.4,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)*0.7]));
-                st_gradient.addColorStop(0.7,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)*0.3]));
-                st_gradient.addColorStop(1,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],0]));
-                title_ctx.fillStyle=st_gradient;
-                title_ctx.beginPath();
-                title_ctx.arc(curr_x,curr_y,fraction_linear*50,-Math.PI,Math.PI);
-                title_ctx.closePath();
-                title_ctx.fill();
+                if(title_ctx.ellipse){
+                    title_ctx.shadowColor=to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)]);
+                    title_ctx.shadowOffsetX=shadowOffsetX;
+                    title_ctx.shadowOffsetY=shadowOffsetY;
+                    title_ctx.shadowBlur=60*fraction_linear;
+                    var radius=18*fraction_linear;
+                    for(var i=0;i<8;++i){
+                        var ecc2=0.2;
+                        var ecc=Math.sqrt(ecc2);
+                        var angle=i*Math.PI/4;
+                        var dist=radius*Math.sqrt(1/ecc2-ecc2);
+                        title_ctx.beginPath();
+                        title_ctx.ellipse(curr_x+Math.cos(angle)*dist-offset_hide,curr_y+Math.sin(angle)*dist-offset_hide,radius/ecc,radius*ecc,angle,-Math.PI,Math.PI);
+                        //title_ctx.ellipse(0,0,60,40,angle,0,2*Math.PI);
+                        title_ctx.fill();
+                    }
+                    title_ctx.shadowBlur=30*fraction_linear;
+                    title_ctx.beginPath();
+                    title_ctx.arc(curr_x-offset_hide,curr_y-offset_hide,24*fraction_linear,-Math.PI,Math.PI);
+                    title_ctx.closePath();
+                    title_ctx.fill();
+                }
+                else{
+                    var st_gradient=title_ctx.createRadialGradient(curr_x,curr_y,0,curr_x,curr_y,fraction_linear*50);
+                    st_gradient.addColorStop(0,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)]));
+                    st_gradient.addColorStop(0.1,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)]));
+                    st_gradient.addColorStop(0.4,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)*0.7]));
+                    st_gradient.addColorStop(0.7,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],Math.min(fraction_linear*2,1)*0.3]));
+                    st_gradient.addColorStop(1,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],0]));
+                    title_ctx.fillStyle=st_gradient;
+                    title_ctx.beginPath();
+                    title_ctx.arc(curr_x,curr_y,fraction_linear*50,-Math.PI,Math.PI);
+                    title_ctx.closePath();
+                    title_ctx.fill();
+                }
             }
             else{
-                var st_gradient=title_ctx.createRadialGradient(0,0,0,0,0,50);
-                st_gradient.addColorStop(0,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],1]));
-                st_gradient.addColorStop(0.1,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],1]));
-                st_gradient.addColorStop(0.4,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],0.7]));
-                st_gradient.addColorStop(0.7,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],0.3]));
-                st_gradient.addColorStop(1,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],0]));
-                title_ctx.fillStyle=st_gradient;
-                title_ctx.beginPath();
-                title_ctx.arc(0,0,50,-Math.PI,Math.PI);
-                title_ctx.closePath();
-                title_ctx.fill();
+                if(title_ctx.ellipse){
+                    title_ctx.shadowColor=to_canvas_color(star_color);
+                    title_ctx.shadowOffsetX=shadowOffsetX;
+                    title_ctx.shadowOffsetY=shadowOffsetY;
+                    title_ctx.shadowBlur=60;
+                    var radius=18;
+                    for(var i=0;i<8;++i){
+                        var ecc2=0.2;
+                        var ecc=Math.sqrt(ecc2);
+                        var angle=i*Math.PI/4;
+                        var dist=radius*Math.sqrt(1/ecc2-ecc2);
+                        title_ctx.beginPath();
+                        title_ctx.ellipse(Math.cos(angle)*dist-offset_hide,Math.sin(angle)*dist-offset_hide,radius/ecc,radius*ecc,angle,-Math.PI,Math.PI);
+                        //title_ctx.ellipse(0,0,60,40,angle,0,2*Math.PI);
+                        title_ctx.fill();
+                    }
+                    title_ctx.shadowBlur=30;
+                    title_ctx.beginPath();
+                    title_ctx.arc(-offset_hide,-offset_hide,24,-Math.PI,Math.PI);
+                    title_ctx.closePath();
+                    title_ctx.fill();
+                }
+                else{
+                    var st_gradient=title_ctx.createRadialGradient(0,0,0,0,0,50);
+                    st_gradient.addColorStop(0,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],1]));
+                    st_gradient.addColorStop(0.1,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],1]));
+                    st_gradient.addColorStop(0.4,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],0.7]));
+                    st_gradient.addColorStop(0.7,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],0.3]));
+                    st_gradient.addColorStop(1,to_canvas_color_with_alpha([star_color[0],star_color[1],star_color[2],0]));
+                    title_ctx.fillStyle=st_gradient;
+                    title_ctx.beginPath();
+                    title_ctx.arc(0,0,50,-Math.PI,Math.PI);
+                    title_ctx.closePath();
+                    title_ctx.fill();
+                }
             }
             title_ctx.restore();
             //var star_gradient=title_ctx.createRadialGradient()
@@ -363,7 +417,9 @@ window.addEventListener("load",function(){
             title_ctx.fill();*/
             //var star_x=
             title_ctx.restore();
-            return false;
+            
+            return time_offset>=Math.max(2200,2000+(text_parts.length-1)*100);
+            //return false;
         };
         var handler=function(){
             if(!draw())title_animrequest_id=window.requestAnimationFrame(handler);
