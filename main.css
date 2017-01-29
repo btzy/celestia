@@ -89,6 +89,11 @@ body{
     position:relative;
     z-index:0;
 }
+#flex-item-note{
+    font-size:12px;
+    font-family:"CandelaBold",sans-serif;
+    color:rgb(128,128,128);
+}
 #flex-item-inputmode{
     flex:0 0 auto;
     width:100%;
@@ -107,6 +112,39 @@ body{
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;
+}
+#flex-item-links{
+    font-size:16px;
+    font-family:"CandelaBold",sans-serif;
+    color:grey;
+    text-align:right;
+    width:100%;
+    padding:8px;
+    box-sizing:border-box;
+}
+#flex-item-links a{
+    text-decoration:none;
+    color:yellow;
+    display:inline-block;
+    padding:0 4px;
+}
+#flex-item-links a:hover{
+    text-decoration:underline;
+}
+#flex-item-legal{
+    font-size:12px;
+    font-family:"CandelaBold",sans-serif;
+    color:rgb(128,128,128);
+}
+#flex-item-legal a{
+    text-decoration:none;
+    color:rgb(128,128,0);
+    display:inline-block;
+    padding:0 4px;
+}
+#flex-item-legal a:hover{
+    text-decoration:underline;
+    color:rgb(255,255,0);
 }
 #canvas-clipper{
     display:inline-block;

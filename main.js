@@ -72,7 +72,7 @@ window.addEventListener("load",function(){
     });
     xhr.open("GET","http://182.19.235.218:8080/welcome");
     xhr.send();
-    name_textbox.addEventListener("keydown",function(e){
+    window.addEventListener("keydown",function(e){
         switch(e.key){
             case "Enter":
                 var start_game_handler=function(){
@@ -103,6 +103,7 @@ window.addEventListener("load",function(){
                 else{
                     fontsloadedcallbacks.push(start_game_handler);
                 }
+                e.preventDefault();
                 break;
         }
     });
