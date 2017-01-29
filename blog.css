@@ -1,4 +1,8 @@
 @font-face{
+    font-family:"CandelaBold";
+    src:url("fonts/candela-bold.otf"),url("fonts/candela-bold.woff");
+}
+@font-face{
     font-family:"CandelaBook";
     src:url("fonts/candela-book.otf"),url("fonts/candela-book.woff");
 }
