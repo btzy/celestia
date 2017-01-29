@@ -201,3 +201,7 @@ body{
 #interactionmode>span.interactionoption:not(.visible){
     display:none;
 }
+
+.inlineblock{
+    display:inline-block;
+}
