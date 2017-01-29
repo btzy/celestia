@@ -136,6 +136,10 @@ body{
     margin:12px 0;
     color:black;
 }
+#flex-item-sharer a{
+    text-decoration:none;
+    color:inherit;
+}
 #flex-item-legal{
     font-size:12px;
     font-family:"CandelaBold",sans-serif;
