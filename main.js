@@ -70,7 +70,7 @@ window.addEventListener("load",function(){
         },3000);
         
     });
-    xhr.open("GET","http://182.19.235.218:8080/welcome");
+    xhr.open("GET","http://lobby.celestia.io:8080/welcome");
     xhr.send();
     window.addEventListener("keydown",function(e){
         switch(e.key){
