@@ -135,6 +135,7 @@ body{
 #flex-item-sharer{
     margin:12px 0;
     color:black;
+    height:24px;
 }
 #flex-item-sharer a{
     text-decoration:none;
