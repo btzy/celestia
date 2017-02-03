@@ -81,6 +81,7 @@ window.addEventListener("load",function(){
                         name_textbox.blur();
                         if(dom_game)dom_game.stop();
                         var do_start=function(){
+                            ga("send","event","game","start");
                             var options={touch:document.getElementsByClassName("visible")[0].classList.contains("touch"),opposite:document.getElementsByClassName("visible")[0].classList.contains("opposite"),hasGlobalCompositeOperationDifference:hasGlobalCompositeOperationDifference};
                             dom_game=new DomGame(canvas,options,death_callback);
                             dom_game.start(chosen_endpoint,name_textbox.value);
