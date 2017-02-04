@@ -220,6 +220,8 @@ var DomGame=function(canvas,options,death_callback){
     var agent_boost_streams=[]; // each element is (updated_time,array of offset,array of point,width). Shares elements with current_agent_boost_streams.  Deletion is done in the drawing handler.
     
     var agent_shields=new Map(); // each element is (fade_start_time(optional=undefined)).  Addition and updating fade_start_time is done in the process_message handler, Deletion is done in the drawing handler.
+    
+    var food_update_cache=new Map(); // storage of foods that server expects client to have.
 
     var leaderboard=[]; // each element is {display_name,score}
 
@@ -910,7 +912,8 @@ var DomGame=function(canvas,options,death_callback){
         
         
         var agent_ct=stream.readUint32();
-        var foods_ct=stream.readUint32();
+        var updated_foods_ct=stream.readUint32();
+        var removed_foods_ct=stream.readUint32();
         for(var i=0;i<agent_ct;++i){
             var agentid=stream.readUint64()+"";
             //if(i===0)my_agentid=agentid;
@@ -920,12 +923,26 @@ var DomGame=function(canvas,options,death_callback){
             var new_agent_properties=AgentProperties.fromStream(stream);
             agent_properties.set(agentid,new_agent_properties);
         }
-        for(var i=0;i<foods_ct;++i){
+        for(var i=0;i<updated_foods_ct;++i){
             var foodid=stream.readUint64()+"";
             var new_food=Food.fromStream(stream);
             new_foods.set(foodid,new_food);
+            food_update_cache.delete(foodid);
             //if(new_food.location.x-screen_centre.x>boardsize.x)console.log("Yes!");
         }
+        for(var i=0;i<removed_foods_ct;++i){
+            var foodid=stream.readUint64()+"";
+            food_update_cache.delete(foodid);
+            //if(new_food.location.x-screen_centre.x>boardsize.x)console.log("Yes!");
+        }
+        food_update_cache.forEach(function(new_food,foodid){
+            new_foods.set(foodid,new_food);
+        });
+        food_update_cache.clear();
+        new_foods.forEach(function(new_food,foodid){
+            food_update_cache.set(foodid,new Food(new_food.location,new_food.is_projectile));
+        });
+        
         
         
         var curr_message_curr_location=screen_centre;
