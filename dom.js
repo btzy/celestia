@@ -54,6 +54,8 @@ var DomGame=function(canvas,options,death_callback){
         return fire_centre.distanceTo(pt)<=touchbuttonradius;
     };
     
+    var lastMovementDirTouchStartTime=0;
+    var boostMovementTouchRunning=false;
     var ongoingMovementDirTouchID,ongoingFiringTouchID,ongoingBoostingTouchID;
     var movement_pt=new Point(logical_width/2,logical_height/2);
     
@@ -66,6 +68,12 @@ var DomGame=function(canvas,options,death_callback){
             ongoingMovementDirTouchID=movementTouch.identifier;
             movement_pt=new Point(movementTouch.clientX,movementTouch.clientY);
             process_movement_dir_update(movement_pt);
+            var nowTime=Date.now();
+            if(lastMovementDirTouchStartTime+300>nowTime){
+                process_boosting_update(true);
+                boostMovementTouchRunning=true;
+            }
+            lastMovementDirTouchStartTime=nowTime;
         }
         var boostingTouch=Array.prototype.find.call(e.changedTouches,function(touch){
             var pt=new Point(touch.clientX,touch.clientY);
@@ -90,7 +98,13 @@ var DomGame=function(canvas,options,death_callback){
             var movementTouch=Array.prototype.find.call(e.changedTouches,function(touch){
                 return touch.identifier===ongoingMovementDirTouchID;
             });
-            if(movementTouch)ongoingMovementDirTouchID=undefined;
+            if(movementTouch){
+                ongoingMovementDirTouchID=undefined;
+                if(boostMovementTouchRunning){
+                    if(ongoingBoostingTouchID===undefined)process_boosting_update(false);
+                    boostMovementTouchRunning=false;
+                }
+            }
         }
         if(ongoingBoostingTouchID!==undefined){
             var boostingTouch=Array.prototype.find.call(e.changedTouches,function(touch){
@@ -98,7 +112,7 @@ var DomGame=function(canvas,options,death_callback){
             });
             if(boostingTouch){
                 ongoingBoostingTouchID=undefined;
-                process_boosting_update(false);
+                if(!boostMovementTouchRunning)process_boosting_update(false);
             }
         }
         if(ongoingFiringTouchID!==undefined){
