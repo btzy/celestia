@@ -46,11 +46,11 @@ var DomGame=function(canvas,options,death_callback){
     
     var touchbuttonradius=48;
     var is_boost_button=function(pt){
-        var boost_centre=new Point((options.opposite)?(logical_width-touchbuttonradius-24):(24+touchbuttonradius),logical_height-touchbuttonradius-24);
+        var boost_centre=new Point((options.opposite)?(24+touchbuttonradius):(logical_width-touchbuttonradius-24),logical_height-touchbuttonradius-24);
         return boost_centre.distanceTo(pt)<=touchbuttonradius;
     };
     var is_fire_button=function(pt){
-        var fire_centre=new Point((options.opposite)?(logical_width-touchbuttonradius-24):(24+touchbuttonradius),logical_height-touchbuttonradius*3-24*2);
+        var fire_centre=new Point((options.opposite)?(logical_width-touchbuttonradius-24):(24+touchbuttonradius),logical_height-touchbuttonradius-24);
         return fire_centre.distanceTo(pt)<=touchbuttonradius;
     };
     
@@ -599,10 +599,10 @@ var DomGame=function(canvas,options,death_callback){
             // boost button
             ctx.save();
             if(!options.opposite){
-                ctx.translate(12,logical_height-96-24-12);
+                ctx.translate(logical_width-96-24-12,logical_height-96-24-12);
             }
             else{
-                ctx.translate(logical_width-96-24-12,logical_height-96-24-12);
+                ctx.translate(12,logical_height-96-24-12);
             }
             if(!prerendered_boost_button_canvas){
                 prerendered_boost_button_canvas=document.createElement("canvas");
@@ -711,10 +711,12 @@ var DomGame=function(canvas,options,death_callback){
             // fire button
             ctx.save();
             if(!options.opposite){
-                ctx.translate(12,logical_height-96*2-24*2-12);
+                //ctx.translate(12,logical_height-96*2-24*2-12);
+                ctx.translate(12,logical_height-96-24-12);
             }
             else{
-                ctx.translate(logical_width-96-24-12,logical_height-96*2-24*2-12);
+                //ctx.translate(logical_width-96-24-12,logical_height-96*2-24*2-12);
+                ctx.translate(logical_width-96-24-12,logical_height-96-24-12);
             }
             if(!prerendered_fire_button_canvas){
                 prerendered_fire_button_canvas=document.createElement("canvas");
