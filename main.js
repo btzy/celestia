@@ -427,6 +427,9 @@ window.addEventListener("load",function(){
             else title_animrequest_id=undefined;
         };
         title_animrequest_id=window.requestAnimationFrame(handler);
+        window.addEventListener("resize",function(){
+            if(title_animrequest_id===undefined)setTimeout(draw,0);
+        });
     };
     if(fontsloaded){
         restart_title_animation();
