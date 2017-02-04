@@ -920,8 +920,10 @@ var DomGame=function(canvas,options,death_callback){
             var new_agent=Agent.fromStream(stream);
             //if(i===0)console.log(new_agent.location.x+" "+new_agent.location.y);
             new_agents.set(agentid,new_agent);
-            var new_agent_properties=AgentProperties.fromStream(stream);
-            agent_properties.set(agentid,new_agent_properties);
+            if(!agent_properties.has(agentid)){
+                var new_agent_properties=AgentProperties.fromStream(stream);
+                agent_properties.set(agentid,new_agent_properties);
+            }
         }
         for(var i=0;i<updated_foods_ct;++i){
             var foodid=stream.readUint64()+"";
