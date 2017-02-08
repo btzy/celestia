@@ -16,11 +16,29 @@ html, body{
     font-family:"CandelaBook",sans-serif;
 }
 
-#blog .title, #about .title{
+#blog .title, #about .title, #changelog .title{
     text-align:center;
     padding:20px 0;
     font-size:28px;
     font-family:"CandelaBold",sans-serif;
+}
+
+#blog .game{
+    width:100%;
+    max-width:800px;
+    margin:0 auto;
+    padding:20px 0;
+    color:darkgray;
+}
+
+#blog .game a{
+    text-decoration:inherit;
+    color:inherit;
+}
+
+#blog .game a:hover{
+    text-decoration:underline;
+    color:white;
 }
 
 #blog .post{
@@ -31,7 +49,16 @@ html, body{
 }
 
 #blog .post>div{
-    padding:4px 0;
+    margin:4px 0;
+}
+
+#blog .post a{
+    text-decoration:inherit;
+    color:yellow;
+}
+
+#blog .post a:hover{
+    text-decoration:underline;
 }
 
 #blog .date{
@@ -62,4 +89,40 @@ html, body{
 #about a{
     color:yellow;
     text-decoration:underline;
+}
+
+#changelog .maintable{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+    border:3px solid grey;
+}
+
+#changelog .maintable th, #changelog .maintable td{
+    border:1px solid grey;
+    padding:4px 8px;
+    text-align:center;
+}
+
+#changelog .maintable .version td{
+    border-top:3px solid grey;
+}
+
+#changelog .maintable .details td{
+    border-bottom:3px solid grey;
+}
+
+#changelog .game{
+    text-align:center;
+    padding-bottom:20px;
+}
+
+#changelog .game a{
+    text-decoration:inherit;
+    color:darkgray;
+}
+
+#changelog .game a:hover{
+    text-decoration:underline;
+    color:white;
 }

@@ -95,6 +95,17 @@ body{
     color:rgb(128,128,128);
     margin-top:20px;
 }
+#flex-item-note span{
+    opacity:0;
+    display:none;
+    transition:opacity 1s linear;
+}
+#flex-item-note span.opaque{
+    opacity:1;
+}
+#flex-item-note span.displayed{
+    display:inline;
+}
 #flex-item-inputmode{
     flex:0 0 auto;
     width:100%;
@@ -117,7 +128,7 @@ body{
 #flex-item-links{
     font-size:16px;
     font-family:"CandelaBold",sans-serif;
-    color:grey;
+    color:gray;
     text-align:right;
     width:100%;
     padding:8px;
