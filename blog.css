@@ -98,6 +98,10 @@ html, body{
     border:3px solid grey;
 }
 
+#changelog .maintable .datecell{
+    width:150px;
+}
+
 #changelog .maintable th, #changelog .maintable td{
     border:1px solid grey;
     padding:4px 8px;
