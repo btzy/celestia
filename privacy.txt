@@ -6,7 +6,7 @@ Our servers collect information about every User connecting to our Site.  These 
 
 Users may voluntarily submit personally-identifiable information to us via means such as creating an account or logging in to our Site.  While creating an account is not necessary to play the game, it may prevent them from engaging in certain Site related activities.
 
-Web browser cookies and site data
+Cookies and site data
 
 Our Site may use cookies and site data (HTML5 Local Storage) to enhance User experience.  Your web browser stores cookies and site data in your computer for saving user preferences, identification and tracking information about them.  You may choose to set your web browser to refuse cookies and site data, or to alert you when cookies are being sent.  However, it may prevent you from engaging in certain Site related activities.
 
@@ -40,4 +40,4 @@ Your acceptance of these terms
 
 By using this Site, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Site.  Your continued use of our Site after any changes are made to this policy will be considered acceptance of the changes.
 
-This document was last updated on 29 January 2017
+This document was last updated on 11 February 2017
