@@ -90,6 +90,7 @@ body{
     z-index:0;
 }
 #flex-item-note{
+    flex:0 0 auto;
     font-size:14px;
     font-family:"CandelaBold",sans-serif;
     color:rgb(128,128,128);
@@ -126,6 +127,7 @@ body{
     user-select:none;
 }
 #flex-item-links{
+    flex:0 0 auto;
     font-size:16px;
     font-family:"CandelaBold",sans-serif;
     color:gray;
@@ -144,6 +146,7 @@ body{
     text-decoration:underline;
 }
 #flex-item-sharer{
+    flex:0 0 auto;
     margin:12px 0;
     color:black;
     height:24px;
@@ -153,6 +156,7 @@ body{
     color:inherit;
 }
 #flex-item-legal{
+    flex:0 0 auto;
     font-size:12px;
     font-family:"CandelaBold",sans-serif;
     color:rgb(128,128,128);
