@@ -168,6 +168,19 @@ body{
     text-decoration:none;
     color:inherit;
 }
+#flex-item-sharer .redditlink{
+    display:inline-block;
+    vertical-align:bottom;
+}
+#flex-item-sharer .redditlink a{
+    display:block;
+    background-color:rgb(200,0,0);
+    color:white;
+    border-radius:4px;
+    height:20px;
+    padding:0 8px;
+    font:normal normal 500 11px/20px 'Helvetica Neue',Arial,sans-serif;
+}
 #flex-item-legal{
     flex:0 0 auto;
     font-size:12px;
