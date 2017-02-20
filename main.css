@@ -181,6 +181,37 @@ body{
     padding:0 8px;
     font:normal normal 500 11px/20px 'Helvetica Neue',Arial,sans-serif;
 }
+#flex-item-sharer .redditlink a::before{
+    display:inline-block;
+    content:"";
+    background-image:url("reddit.svg");
+    height:14px;
+    width:14px;
+    margin-right:4px;
+    margin-bottom:4px;
+    vertical-align:bottom;
+}
+#flex-item-sharer .vklink{
+    display:inline-block;
+    vertical-align:bottom;
+}
+#flex-item-sharer .vklink .vklinkinner{
+    display:block;
+    background-color:rgb(98,135,174);
+    color:white;
+    border-radius:4px;
+    height:20px;
+    padding:0 8px;
+    font:normal normal 500 11px/20px 'Helvetica Neue',Arial,sans-serif;
+}
+#flex-item-sharer .vklink .vklinkinner::before{
+    display:inline-block;
+    content:"";
+    background-image:url("https://vk.com/images/icons/like_widget.png");
+    height:8px;
+    width:14px;
+    margin-right:4px;
+}
 #flex-item-legal{
     flex:0 0 auto;
     font-size:12px;
