@@ -303,6 +303,9 @@ body{
     font-family:"CandelaBold",sans-serif;
     color:yellow;
     padding:8px;
+}
+
+#new-changes-button{
     cursor:pointer;
 }
 
