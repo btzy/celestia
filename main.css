@@ -2,6 +2,10 @@
     font-family:"CandelaBold";
     src:url("fonts/candela-bold.otf"),url("fonts/candela-bold.woff");
 }
+@font-face{
+    font-family:"CandelaBook";
+    src:url("fonts/candela-book.otf"),url("fonts/candela-book.woff");
+}
 html{
     /*min-height:100%;*/
     height:100%;
@@ -147,6 +151,7 @@ body{
     width:100%;
     padding:8px;
     box-sizing:border-box;
+    padding-left:120px; /* for the newest changes button */
 }
 #flex-item-links a{
     text-decoration:none;
@@ -286,6 +291,28 @@ body{
 #interactionmode>span.interactionoption:not(.visible){
     display:none;
 }
+
+
+#new-changes-panel{
+    position:absolute;
+    top:0;
+    left:0;
+    max-width:100%;
+    background-color:rgba(0,0,0,0.5);
+    font-size:16px;
+    font-family:"CandelaBold",sans-serif;
+    color:yellow;
+    padding:8px;
+    cursor:pointer;
+}
+
+#new-changes-details{
+    width:300px;
+    font-size:14px;
+    color:lightyellow;
+    font-family:"CandelaBook",sans-serif;
+}
+
 
 .inlineblock{
     display:inline-block;
