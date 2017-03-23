@@ -24,4 +24,8 @@ All users are to comply with these game rules when using our Site.
 
 9. We have the discretion to update these Terms of Service at any time.  Users are encouraged to check http://celestia.io/terms.txt for updates to these Terms of Service.  Your continued use of our Site after any such changes are made will be considered acceptance of the changes.
 
-This document was last updated on 11 February 2017
+5. Governing Law:
+
+These terms and conditions are governed by and construed in accordance with the laws of Singapore and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+
+This document was last updated on 23 March 2017
