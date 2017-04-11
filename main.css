@@ -34,7 +34,8 @@ body{
     padding:0;
     border:0;
     position:absolute;
-    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 #welcome-panel{
     z-index:2;
@@ -63,16 +64,22 @@ body{
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    flex-wrap:nowrap;
     width:100%;
-    height:100%;
+    min-height:100%;
     margin:0;
     padding:0;
     border:0;
 }
+.flex-item-expand2{
+    flex:2 2 auto;
+    width:100%;
+    height:0;
+}
 .flex-item-expand{
     flex:1 1 auto;
     width:100%;
-    height:200px;
+    height:0;
 }
 #flex-item-title{
     flex:0 0 auto;
@@ -129,6 +136,7 @@ body{
     height:20px;
     line-height:20px;
     margin-top:8px;
+    margin-bottom:8px;
     box-sizing:border-box;
     text-align:center;
     font-family:"CandelaBold",sans-serif;
@@ -240,6 +248,13 @@ body{
     text-decoration:underline;
     color:rgb(255,255,0);
 }
+
+#flex-item-ad{
+    width:300px;
+    height:250px;
+    flex:0 0 auto;
+}
+
 #canvas-clipper{
     display:inline-block;
     /*margin:0 auto;*/
@@ -364,6 +379,21 @@ body{
     font-size:14px;
     color:lightyellow;
     font-family:"CandelaBook",sans-serif;
+}
+
+.older-changes{
+    font-size:16px;
+    color:darkgrey;
+}
+
+.older-changes-details{
+    font-size:14px;
+    color:darkgrey;
+}
+
+.older-changes-details a{
+    color:white;
+    text-decoration:underline;
 }
 
 
