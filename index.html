@@ -24,8 +24,8 @@
             googletag.enableServices();
         });
     </script>
-    <script type="text/javascript" src="celestia.min.js"></script>
-    <!--<script type="text/javascript" src="adinplay.js"></script>
+    <!--<script type="text/javascript" src="celestia.min.js"></script>-->
+    <script type="text/javascript" src="adinplay.js"></script>
     <script type="text/javascript" src="FontLoader.js"></script>
     <script type="text/javascript" src="key-polyfill.js"></script>
     <script type="text/javascript" src="encoding-polyfill.js"></script>
@@ -41,7 +41,7 @@
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="facebook.js"></script>
     <script type="text/javascript" src="twitter.js"></script>
-    <script type="text/javascript" src="vkontakte.js"></script>-->
+    <script type="text/javascript" src="vkontakte.js"></script>
 </head>
 <body>
     <div id="fb-root"></div>
@@ -92,27 +92,60 @@
             </div>
         </div>
     </div>
+    <div class="full-screen-panel displaynone transparent" id="skin-chooser-panel">
+        <div class="inner-wrapper" id="skin-chooser-panel-inner-wrapper">
+            <div id="skin-chooser-flex">
+                <div id="skin-chooser-picker" class="hsl-color-picker">
+                    <div class="hue-sat">
+                        <canvas></canvas>
+                        <div class="selector">
+                            <div class="left"></div>
+                            <div class="right"></div>
+                            <div class="top"></div>
+                            <div class="bottom"></div>
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="lum">
+                        <canvas></canvas>
+                        <div class="selector">
+                            <div class="leftarr"></div>
+                            <div class="rightarr"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div id="skin-chooser-bottom">
+                    <div class="backwrapper"><span class="back">&laquo; Back</span></div>
+                    <div class="sample"><canvas></canvas></div>
+                    <div class="defaultwrapper"><span class="default">Default</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="full-screen-panel" id="welcome-panel">
         <div id="new-changes-panel"><div id="new-changes-button">Newest changes &raquo;</div>
             <div id="new-changes-details" class="displaynone">
                 <ul>
-                    <li>Fixed a bug where no existing food were displayed when starting the game.</li>
-                    <li>Some improved animations.</li>
+                    <li>Your blob color can now be customized.</li>
                 </ul>
                 <div class="older-changes">Older changes</div>
                 <ul class="older-changes-details">
+                    <li>Fixed a bug where no existing food were displayed when starting the game.</li>
+                    <li>Some improved animations.</li>
                     <li>Global leaderboard with daily, weekly and monthly highscores.</li>
                     <li>Personal leaderboard (saved locally).</li>
                     <li>Bots have now realised that they can boost.</li>
-                    <li>Cranked up the movement speed.</li>
-                    <li>Reduced boost speed multiplier slightly.</li>
                 </ul>
                 <div class="older-changes-details">For more information, please view the <a href="changelog.html">changelog</a>.</div>
             </div>
         </div>
+        <div id="skin-button">
+            <canvas id="skin-canvas" title="Change skin">Change skin</canvas>
+        </div>
         <div id="welcome-flex">
             <div id="flex-item-links">
-                <a href="about.html">About</a> | <a href="blog.html">Blog</a> | <a href="changelog.html">Changelog</a> | <a href="http://iogames.space/">More .io games</a>
+                <a href="about.html">About</a> | <a href="blog.html">Blog</a> | <a href="changelog.html">Changelog</a> | <a href="http://iogames.space/">More .io games</a><span id="alternate-skin-button"> | <span class="link" id="alternate-skin-link">Change skin</span></span>
             </div>
             <div class="flex-item-expand2"></div>
             <div id="flex-item-title">
