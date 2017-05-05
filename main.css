@@ -396,17 +396,197 @@ body{
     transition:background-color 0s;
     background-color:rgb(124,124,124);
 }
-#name-second-row>#center-space{
-    width:auto;
-    box-sizing:border-box;
-    flex:1 1 auto;
-}
 #name-second-row>.name-second-row-button>canvas{
     height:100%;
     width:100%;
     pointer-events:none;
     display:block;
 }
+#name-second-row>#center-space{
+    width:auto;
+    box-sizing:border-box;
+    flex:1 1 auto;
+    transition:background-color 0.5s, color 0.5s;
+    color:rgb(192,192,192);
+    text-align:center;
+    font-family:"CandelaBook",sans-serif;
+}
+@media (max-width: 420px){
+    #name-second-row>#center-space{
+        font-size:20px;
+    }
+}
+@media (max-width: 386px){
+    #name-second-row>#center-space{
+        font-size:16px;
+    }
+}
+#name-second-row>#center-space:hover{
+    background-color:rgb(93,93,93);
+    color:rgb(255,255,255);
+}
+#name-second-row>#center-space .center-space-object{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+#name-second-row>#center-space select{
+    outline:none;
+    border:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    height:100%;
+    display:block;
+    background-color:rgb(62,62,62);
+    font-size:inherit;
+    font-family:inherit;
+    font-style:inherit;
+    color:rgb(255,255,255);
+    cursor:pointer;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+#name-second-row>#center-space select>option{
+    outline:none;
+    border:none;
+    margin:0;
+    display:block;
+    background-color:rgb(62,62,62);
+    font-size:inherit;
+    font-family:inherit;
+    font-style:inherit;
+    color:rgb(255,255,255);
+    text-align:center;
+    text-align-last:center;
+    padding:4px 0;
+    text-overflow:inherit;
+    white-space:inherit;
+    overflow:inherit;
+}
+
+#name-second-row>#center-space .server-select-cover{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:stretch;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    cursor:pointer;
+    transition:background-color 0.5s, color 0.5s;
+    background-color:rgb(62,62,62);
+    color:rgb(192,192,192);
+    pointer-events:none;
+    line-height:44px;
+}
+#name-second-row>#center-space:hover .server-select-cover{
+    background-color:rgb(93,93,93);
+    color:rgb(255,255,255);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button{
+    flex:0 0 44px;
+    pointer-events:auto;
+    transition:background-color 0.5s;
+    background-color:rgba(93,93,93,0);
+    position:relative;
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button.permaopaque{
+    background-color:rgba(93,93,93,1);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button:hover{
+    background-color:rgba(93,93,93,1);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button:active{
+    background-color:rgba(124,124,124,1);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button .server-select-cover-button-svg{
+    width:100%;
+    height:100%;
+    opacity:0.753;
+    transition:opacity 0.5s;
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button:hover .server-select-cover-button-svg{
+    opacity:1;
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button.permaopaque .server-select-cover-button-svg{
+    opacity:1;
+} 
+#name-second-row>#center-space .server-select-cover .server-select-cover-button .server-select-cover-directlink{
+    position:absolute;
+    left:44px;
+    top:0;
+    height:44px;
+    line-height:44px;
+    width:0px;
+    transition:width 0.5s, color 0.5s, background-color 0.5s;
+    color:rgb(192,192,192);
+    background-color:rgb(62,62,62);
+    overflow:hidden;
+    white-space:nowrap;
+    text-align:left;
+    cursor:text;
+    -webkit-user-select:text;
+    -khtml-user-select:text;
+    -moz-user-select:text;
+    -ms-user-select:text;
+    user-select:text;
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button .server-select-cover-directlink::-moz-selection{
+    background:rgba(255,255,0,0.3);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button .server-select-cover-directlink::selection{
+    background:rgba(255,255,0,0.3);
+}
+@media (max-width: 450px){
+    #name-second-row>#center-space .server-select-cover .server-select-cover-button .server-select-cover-directlink{
+        letter-spacing:-0.07em;
+    }
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button.permaopaque .server-select-cover-directlink{
+    color:rgb(255,255,255);
+    background-color:rgb(93,93,93);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button:hover .server-select-cover-directlink{
+    color:rgb(255,255,255);
+    background-color:rgb(93,93,93);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-wrap{
+    flex:1 1 auto;
+    overflow:hidden;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:stretch;
+    transition:background-color 0.5s, color 0.5s;
+    background-color:rgb(62,62,62);
+    color:rgb(192,192,192);
+}
+#name-second-row>#center-space:hover .server-select-cover .server-select-cover-wrap{
+    background-color:rgb(93,93,93);
+    color:rgb(255,255,255);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-button:hover + .server-select-cover-wrap{
+    background-color:rgb(62,62,62);
+    color:rgb(192,192,192);
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-text{
+    flex:1 0 auto;
+    max-width:100%;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+#name-second-row>#center-space .server-select-cover .server-select-cover-space{
+    flex:0 1 44px;
+    overflow:hidden;
+}
+
+
 #interactionmode{
     cursor:pointer;
     border-radius:8px;
@@ -501,6 +681,10 @@ body{
     z-index:3;
     transition:opacity 0.7s;
     overflow:hidden;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
     user-select:none;
     cursor:default;
 }
