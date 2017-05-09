@@ -647,6 +647,11 @@ body{
     text-decoration:underline;
 }
 
+#flex-item-skin-button{
+    flex:0 0 0px;
+    position:relative;
+    width:100%;
+}
 
 #skin-button{
     position:absolute;
@@ -732,7 +737,7 @@ body{
 }
 
 #skin-chooser-flex>#skin-chooser-picker{
-    flex:1 1 0;
+    flex:1 1 0px;
     min-height:0;
 }
 
@@ -745,7 +750,7 @@ body{
 }
 
 .hsl-color-picker>.hue-sat{
-    flex:1 1 0;
+    flex:1 1 0px;
     min-width:0;
     min-height:0;
     position:relative;
@@ -877,7 +882,7 @@ body{
 }
 
 #skin-chooser-bottom>.backwrapper{
-    flex:1 1 0;
+    flex:1 1 0px;
     text-align:right;
     box-sizing:border-box;
     padding-right:12px;
@@ -893,7 +898,7 @@ body{
 }
 
 #skin-chooser-bottom>.defaultwrapper{
-    flex:1 1 0;
+    flex:1 1 0px;
     text-align:left;
     box-sizing:border-box;
     padding-left:12px;
