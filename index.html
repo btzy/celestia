@@ -25,7 +25,8 @@
         });
     </script>
     <script type="text/javascript" src="celestia.min.js"></script>
-    <!--<script type="text/javascript" src="adinplay.js"></script>
+    <!--<script type="text/javascript" src="cookiesettings.js"></script>
+    <script type="text/javascript" src="adinplay.js"></script>
     <script type="text/javascript" src="FontLoader.js"></script>
     <script type="text/javascript" src="key-polyfill.js"></script>
     <script type="text/javascript" src="encoding-polyfill.js"></script>
@@ -228,15 +229,25 @@
                 </span>
             </div>
             <div id="flex-item-legal">
-                <a href="terms.txt">Terms of Service</a> | <a href="privacy.txt">Privacy</a>
+                <a href="terms.txt">Terms of Service</a> | <a href="privacy.txt">Privacy | <a id="cookie-settings-button">Cookie Settings</a>
             </div>
             <div id="flex-item-right-bottom">
                 <div id="skin-button">
                     <canvas id="skin-canvas" title="Change skin">Change skin</canvas>
                 </div>
-                <div id="gamezoo-button">
+                <!--<div id="gamezoo-button">
                     <div id="gamezoo-also-try" class="displaynone">Also try</div>
                     <iframe id="gamezoo-iframe" frameborder="0" width="250" height="125"></iframe>
+                </div>-->
+                <div id="cookie-settings" class="displaynone">
+                    <div>We use cookies and local storage save your preferences and statistics, analyse site traffic, and serve targeted ads.  By using our site, you consent to our use of cookies.</div>  <div>Use cookies and local storage for:</div>
+                    <div class="cookie-settings-flex">
+                        <span class="option"><input type="checkbox" id="cookie-necessary-checkbox" checked disabled /><label for="cookie-necessary-checkbox">Necessary functions</label></span>
+                        <span class="option"><input type="checkbox" id="cookie-functionality-checkbox" checked /><label for="cookie-functionality-checkbox">Personalization and functionality</label></span>
+                        <span class="option"><input type="checkbox" id="cookie-analytics-checkbox" checked /><label for="cookie-analytics-checkbox">Site performance and analytics</label></span>
+                        <span class="option"><input type="checkbox" id="cookie-advertising-checkbox" checked /><label for="cookie-advertising-checkbox">Targeting</label></span>
+                        <span><input type="button" value="OK" id="cookie-okay-button" /></span>
+                    </div>
                 </div>
             </div>
         </div>
